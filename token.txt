@@ -1,0 +1,9 @@
+{
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTYzODkxODU2OTd9.eIKo9NNt2Alzpmtp7oeEzFz37fakzuep6byy66K99R8",
+  "expires": 1496389185697,
+  "user": {
+    "name": "admin",
+    "role": "admin",
+    "username": "admin"
+  }
+}

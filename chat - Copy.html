@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://193.168.40.168:4000');
+        socket.on('connect', function() {
+            var username = prompt('Input your username');
+            socket.emit('adduser', username);
+        });
+
+        socket.on('updatechat', function(username, data) {
+            $('.conversation').append('<div><strong>' + username + ':</strong> ' + data + '</div>');
+        });
+
+        socket.on('updaterooms', function(rooms, current_room) {
+            $('#rooms').empty();
+            $.each(rooms, function(key, value) {
+                if (value == current_room) {
+                    $('#rooms').append('<p>' + value + '</p>');                   
+                } else {
+                    $('#rooms').append('<p><a href="#" onclick="changeRoom(\''+value+'\')">' + value + '</a></p>');
+                };
+            });
+        });
+
+        function changeRoom(room) {
+            socket.emit('changeRoom', room);
+        };
+
+        $(document).ready(function() {
+            $('#dataSend').click(function() {
+                var message = $('#data').val();
+                $('#data').val('');
+                socket.emit('senchat', message);
+            })
+        });
+
+
+    </script>
+</head>
+<body>
+    <div id="rooms" class="rooms"></div>
+    <div id="content">
+        <div class="conversation"></div>
+        </br>
+        <input type="text" name="data" id="data">
+        <input type="button" value="Send" id="dataSend">
+    </div>
+</body>
+</html>
