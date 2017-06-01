@@ -3,9 +3,11 @@ var app = express();
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
+var ip = '192.168.35.44';
+var port = 4000;
 
-server.listen(4000, '192.168.35.44', function(){
-    console.log("Server is running ...")
+server.listen(port, ip, function(){
+    console.log("Server is running on ["+ip+":"+port+"]")
 });
 app.get('/',function (req, res) {
     res.sendFile(__dirname + '/chat.html')
