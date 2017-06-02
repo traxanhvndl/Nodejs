@@ -1,0 +1,14 @@
+{
+  "name": "awesomechat",
+  "version": "1.0.0",
+  "description": "my chat template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TX",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
