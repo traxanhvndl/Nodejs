@@ -10,25 +10,36 @@ $(document).ready(function(){
 	$('.close').click(function(){
 		$('.msg_box').hide();
 	});
-	$('#setNick').submit(function(){
+	$('.login.page').click(function() {
+		$('#nick_name').focus();
+	});
+	$('#nick_name').on('focus keydown',function() {
+		if ($('#nick_name').val() != ""){
+			$('#clear').show();
+		} else {
+			$('#clear').hide();
+		}
+	})
+	$('#set_nick').submit(function(){
 			// 	e.preventDefault();
 			// if ($('#nickname').val() == null || $('#nickname').val() == ""){
 			// 	$('#nickErorr').html('Ban chua nhap tai khoan');
 			// }else{
-				socket.emit('new user', $('#nickName').val(), function(data){
-					 if (data){
-						console.log('status Ok');
+        var nickname = $('#nick_name').val();
+        socket.emit('new_user', nickname, function(data){
+             if (data){
+                console.log('status Ok');
 
-						$('#nickWrap').hide();
+                $('#nick_wrap').hide();
 
-						$('.chat_box').show();
-					}else{
-						 $('#nickErorr').html('Tai khoan da duoc su dung. Vui long dien tai khoan khac');
-					}
-				});
-				$('#nickName').val('');
-			return false;
-			});
+                $('.chat_box').show();
+            }else{
+                 $('#nick_erorr').html('Oops! Nick name '+nickname+' is used, Please retry !');
+            }
+        });
+        $('#nick_name').val('');
+    return false;
+    });
 
 	function usernameClick(){
 	$('.user').click(function(){
@@ -37,12 +48,20 @@ $(document).ready(function(){
 
 		$('.msg_box').show();
 		$('#box_name').html($(this).text());
-		socket.emit('open-chatbox', $(this).text());
+		socket.emit('open_chatbox', $(this).text());
 	});
+    
+    $('.nick_name').keypress(function (e) {
+      if (e.which == 13) {
+        $('form#set_nick').submit();
+        return false;
+      }
+    });
+    
 	}
 	usernameClick();
 
-	socket.on('usernames', function(data){
+	socket.on('user_names', function(data){
 			console.log(data);
 			var html = '';
 				for (i=0; i<data.length; i++){
@@ -80,11 +99,11 @@ $(document).ready(function(){
         if (e.keyCode == 13) {
         	var msg = $(this).val();
         	$(this).val('');
-        	socket.emit('send message', msg, $('#box_name').text());
+        	socket.emit('send_message', msg, $('#box_name').text());
     }
     });
 
-	socket.on('new message', function(data){
+	socket.on('new_message', function(data){
 
 			console.log('Gui tu '+data.nick);
 			console.log('Gui toi '+data.sendto);

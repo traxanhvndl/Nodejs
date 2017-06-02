@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="facivon.ico">
 
-    <title>awesomechat</title>
+    <title>Urchat</title>
     <link href="/stylesheets/style.css" rel="stylesheet">
     <!-- Load module socket.io vao client side -->
     <script src="/socket.io/socket.io.js"></script> 
@@ -19,17 +19,24 @@
     <script src="/javascripts/script.js"></script>
   </head>
   <body>
-  <div id="nickWrap">
-		<p>Tai khoan dang nhap cua ban:</p>
-		<p id="nickErorr"></p>	
-		<form id="setNick" name="fname">
-			<input size="35" id="nickName" name="fvalue"></input>
-			<input type="submit"></input>
-		</form>
+  <div id="nick_wrap" class="login page">
+		<div class="form">
+			<h3 class="title">What is your name ?</h3>
+			<div id="nick_erorr"></div>
+			<form id="set_nick" name="fname">
+				<center>
+				<div class="input">
+					<input class="usernameInput" id="nick_name" name="fvalue" maxlength="16" autocomplete="off"></input>
+					<span id="clear" class="clear" hidden>x</span>
+				</div>
+				<center>
+				<!--<input type="submit" value=">" disabled></input>-->
+			</form>
+		</div>
 	</div>
 
   <div class="chat_box">
-	<div class="chat_head"> Chat Box</div>
+	<div class="chat_head">Box</div>
 	<div class="chat_body">
 	</div>
   </div>
@@ -37,7 +44,7 @@
 <div class="msg_box" style="right:290px; display:none">
 	<div class="msg_head">
 	<span id="box_name" name=""></span>
-	<div class="close">x</div>
+	<div class="close">•</div>
 	</div>
 	<div class="msg_wrap">
 		<div class="msg_body">

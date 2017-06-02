@@ -1,6 +1,7 @@
 
 body{
 	background:rgb(253,211,211);
+	background: #252526;
 	margin:0px;
 	height:900px;
 	font-family: sans-serif;
@@ -114,7 +115,7 @@ body{
 
 
 .msg_b{
-	background:#EEF2E7;
+	background:#dd5825;
 	padding:10px;
 	min-height:15px;
 	margin-bottom:5px;
@@ -128,7 +129,91 @@ body{
 	width:0px;
 	height:0px;
 	border: 10px solid;
-	border-color: transparent transparent transparent #EEF2E7;
+	border-color: transparent transparent transparent #dd5825;
 	right:-20px;
 	top:7px;
+}
+
+/* Pages */
+
+.pages {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.page {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+#nick_wrap{
+	background-color: #1e1e1e;
+}
+
+#nick_wrap .form {
+  height: 100px;
+  margin-top: -100px;
+  position: absolute;
+
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+#nick_wrap .title {
+  font-size: 200%;
+}
+
+#nick_wrap .form .input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  /*padding-bottom: 15px;*/
+  padding: 0 10px 15px 10px;
+  text-align: center;
+  width: 400px;
+}
+
+#nick_wrap .form .usernameInput {
+  background-color: transparent;
+  border: none;
+  /*border-bottom: 2px solid #fff;*/
+  outline: none;
+  /*padding-bottom: 15px;*/
+  text-align: center;
+  width: 85%;
+  /*float: left;*/
+}
+
+#nick_wrap .form .clear{
+	width: 15%;
+}
+
+#nick_wrap .usernameInput {
+  font-size: 200%;
+  letter-spacing: 3px;
+}
+
+#nick_wrap .title {
+  color: #fff;
+  font-weight: 200;
+}
+
+#nick_wrap .usernameInput {
+  color: #adadad;
+  font-weight: 100;
+}
+
+#nick_wrap .clear {
+  color: #adadad;
+  font-weight: 100;
+  font-weight: bold;
+}
+
+#nick_wrap .clear:hover {
+  cursor: pointer;
 }
