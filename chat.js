@@ -3,7 +3,7 @@ var app = express();
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
-var ip = '192.168.35.44';
+var ip = '11.11.254.69';
 var port = 4000;
 
 server.listen(port, ip, function(){
