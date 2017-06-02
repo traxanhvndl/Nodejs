@@ -2,10 +2,13 @@ var express = require('express'),
 	app = express(),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
-	users = {},
-    port = process.env.PORT || 5000,
+	users = {};
+    // port = process.env.PORT || 5000,
 	// ip = process.env.HOST || '192.168.35.44';
-    ip = process.env.HOST || '11.11.254.69';
+    // ip = process.env.HOST || '11.11.254.69';
+
+var port = process.env.PORT || 3000;
+var ip = process.env.HOST || '0.0.0.0';
 
 server.listen(port, ip, function(){
     console.log("Server is running on ["+ip+":"+port+"]")
