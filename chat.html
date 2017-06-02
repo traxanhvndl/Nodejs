@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        var socket = io.connect('http://192.168.35.44:4000');
+        var socket = io.connect('http://11.11.254.69:3000');
         socket.on('connect', function() {
             var username = prompt('Input your username');
             socket.emit('adduser', username);

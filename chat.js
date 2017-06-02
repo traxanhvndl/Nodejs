@@ -3,8 +3,8 @@ var app = express();
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
-var ip = '11.11.254.69';
-var port = 4000;
+var port = process.env.PORT || 3000;
+var ip = process.env.HOST || '0.0.0.0';
 
 server.listen(port, ip, function(){
     console.log("Server is running on ["+ip+":"+port+"]")
