@@ -13,6 +13,9 @@ $(document).ready(function(){
 	$('.login.page').click(function() {
 		$('#nick_name').focus();
 	});
+	$('#clear').click(function() {
+		$('#nick_name').val('');
+	});
 	$('#nick_name').on('focus keydown',function() {
 		if ($('#nick_name').val() != ""){
 			$('#clear').show();
@@ -34,7 +37,7 @@ $(document).ready(function(){
 
                 $('.chat_box').show();
             }else{
-                 $('#nick_erorr').html('Oops! Nick name '+nickname+' is used, Please retry !');
+                 $('#nick_erorr').html('Oops ! Nick name <b>'+nickname+'</b> is used, Please retry !');
             }
         });
         $('#nick_name').val('');

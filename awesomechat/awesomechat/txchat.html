@@ -22,16 +22,16 @@
   <div id="nick_wrap" class="login page">
 		<div class="form">
 			<h3 class="title">What is your name ?</h3>
-			<div id="nick_erorr"></div>
 			<form id="set_nick" name="fname">
 				<center>
 				<div class="input">
 					<input class="usernameInput" id="nick_name" name="fvalue" maxlength="16" autocomplete="off"></input>
-					<span id="clear" class="clear" hidden>x</span>
+					<span id="clear" class="clear" hidden>X</span>
 				</div>
 				<center>
 				<!--<input type="submit" value=">" disabled></input>-->
 			</form>
+			<div id="nick_erorr"></div>
 		</div>
 	</div>
 
@@ -44,13 +44,15 @@
 <div class="msg_box" style="right:290px; display:none">
 	<div class="msg_head">
 	<span id="box_name" name=""></span>
-	<div class="close">•</div>
+	<div class="close">x</div>
 	</div>
 	<div class="msg_wrap">
 		<div class="msg_body">
 			<div class="msg_push"></div>
 		</div>
-	<div class="msg_footer"><textarea class="msg_input" rows="4"></textarea></div>
+	<div class="msg_footer">
+		<textarea class="msg_input"></textarea>
+	</div>
 </div>
 </div>
 </body>
